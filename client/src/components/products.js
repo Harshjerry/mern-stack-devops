@@ -5,6 +5,7 @@ import Product from "./product";
 import {mobile} from "./../responsive";
 import {useState,useEffect} from "react";
 import axios from "axios";
+import { publicRequest } from "../requestMethod.js";
 
 
 const Container=styled.div` display:flex;
@@ -21,8 +22,10 @@ const [filteredProducts,setFilteredProducts]=useState([]);
 useEffect(()=>{
 const getProducts=async()=>{
   try{
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const res = await axios.get(cat ? `${BACKEND_URL}/product?category=${cat}` : `${BACKEND_URL}/product`);
+
+	  const res = await publicRequest.get(
+  cat ? `/product?category=${cat}` : `/product`
+);
 
 setProducts(res.data);
 }catch(err){
