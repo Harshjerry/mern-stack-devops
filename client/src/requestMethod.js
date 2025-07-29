@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/";
+
+
+
+const BASE_URL = process.env.BACKEND_URL || "http://localhost:5000/api/";
 
 // Check if localStorage item exists before accessing its properties
 const persistRoot = localStorage.getItem("persist:root");

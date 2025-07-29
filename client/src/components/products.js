@@ -21,7 +21,9 @@ const [filteredProducts,setFilteredProducts]=useState([]);
 useEffect(()=>{
 const getProducts=async()=>{
   try{
-const res=await axios.get(cat? `http://localhost:5000/api/product?category=${cat}` : "http://localhost:5000/api/product");
+const BACKEND_URL = process.env.BACKEND_URL;
+const res = await axios.get(cat ? `${BACKEND_URL}/product?category=${cat}` : `${BACKEND_URL}/product`);
+
 setProducts(res.data);
 }catch(err){
     console.log(err);
