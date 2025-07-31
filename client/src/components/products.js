@@ -22,8 +22,13 @@ const [filteredProducts,setFilteredProducts]=useState([]);
 useEffect(()=>{
 const getProducts=async()=>{
   try{
+<<<<<<< HEAD
 // const res = await axios.get(cat ? `http://localhost:5000/api/product?category=${cat}` : `http://localhost:5000/api/product`);
 const res = await publicRequest.get(
+=======
+
+	  const res = await publicRequest.get(
+>>>>>>> c5958adc4bc0d06a6ba7f717ee7e488f28d830ad
   cat ? `/product?category=${cat}` : `/product`
 );
 
